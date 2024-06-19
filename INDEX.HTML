@@ -296,6 +296,45 @@
             margin-bottom: 15px;
             line-height: 1.8;
         }
+
+        .dojos-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dojos-list li {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dojos-location,
+        .dojos-contact {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .dojos-location strong {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .dojos-contact a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .dojos-contact a:hover {
+            color: #0056b3;
+        }
+
     </style>
 </head>
 
@@ -309,9 +348,9 @@
                 <li><a href="#aikido">Aikido</a></li>
                 <li><a href="#daitan-aikido">Daitan Aikido</a></li>
                 <li><a href="#professores">Professores</a></li>
-				<li><a href="#dojo">Dojo</a></li>
+                <li><a href="#dojo">Dojo</a></li>
                 <li><a href="#servicos">Serviços</a></li>
-				<li><a href="#produtos">Produtos</a></li>
+                <li><a href="#produtos">Produtos</a></li>
                 <li><a href="#redes-sociais">Redes Sociais</a></li>
             </ul>
             <div class="menu-toggle">
@@ -407,17 +446,41 @@
 		
         <section id="dojo">
             <h2>Dojo</h2>
-            <div class="dojo">
-                <div class="content-section">
-                    <p>⦁ Lauro de Freitas – no Clube da APPM, Av. José Leite, s/n, em frente ao Condomínio Family.<br>
-                        Telefone: (71) 986225839, Uerlison Simões Sensei;<br>
-                        ⦁ Salvador – na Av. Paralela, ao lado do Parque de Exposições.<br>
-                        Telefone: (71) 99235-4301, Cristiano Tosta Sensei;<br>
-                        ⦁ Feira de Santana – no Aikidojo, Rua Miranda, 650b, Mangabeira.<br>
-                        Telefone: (75) 99173-0009, João Ricardo Sensei;<br>
-                        ⦁ Camaçari – na Academia Absolute, Av. Radial A, s/n, Centro.<br>
-                        Telefone: (71) 98844-6975, Denilton - Instrutor.</p>
-                </div>
+            <div class="content-section">
+                <ul class="dojos-list">
+                    <li>
+                        <div class="dojos-location">
+                            <strong>Lauro de Freitas:</strong>&nbsp no Clube da APPM, Av. José Leite, s/n, em frente ao Condomínio Family.
+                        </div>
+                        <div class="dojos-contact">
+                            <a href="tel:+5571986225839">(71) 98622-5839</a>, Uerlison Simões Sensei
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dojos-location">
+                            <strong>Salvador:</strong>&nbsp na Av. Paralela, ao lado do Parque de Exposições.
+                        </div>
+                        <div class="dojos-contact">
+                            <a href="tel:+5571992354301">(71) 99235-4301</a>, Cristiano Tosta Sensei
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dojos-location">
+                            <strong>Feira de Santana:</strong>&nbsp no Aikidojo, Rua Miranda, 650b, Mangabeira.
+                        </div>
+                        <div class="dojos-contact">
+                            <a href="tel:+5575991730009">(75) 99173-0009</a>, João Ricardo Sensei
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dojos-location">
+                            <strong>Camaçari:</strong>&nbsp na Academia Absolute, Av. Radial A, s/n, Centro.
+                        </div>
+                        <div class="dojos-contact">
+                            <a href="tel:+5571988446975">(71) 98844-6975</a>, Denilton - Instrutor
+                        </div>
+                    </li>
+                </ul>
             </div>
         </section>
 
@@ -439,20 +502,15 @@
                 </div>
             </div>
         </section>
-		<section id="produtos">
+        <section id="produtos">
             <h2>Produtos</h2>
             <div class="produtos">
                 <div class="content-section">
                     <ul>
                         <li>Kimonos ou Dogi</li>
                         <li>Camisas</li>
-                        <li>Kit armas de madeira: Bokken (espada de madeira), Jo (bastão de madeira), Tanto (faca de
-                            madeira)</li>
-                        <li>Livro: Ebook Aikido - O seu caminho para um novo rumo. Recomendado para os iniciantes e para
-                            os mais graduados também. Autor: Nelson Faria, praticante da escola Daitan Aikido.
-                            Disponível pelo <a
-                                href="https://daitanaikido.hotmart.host/pagina-de-vendas-db3aaccb-d22f-4871-bae3-81b546106596"
-                                target="_blank">link</a>.</li>
+                        <li>Kit armas de madeira: Bokken (espada de madeira), Jo (bastão de madeira), Tanto (faca de madeira)</li>
+                        <li>Livro: Ebook Aikido - O seu caminho para um novo rumo. Recomendado para os iniciantes e para os mais graduados também. Autor: Nelson Faria, praticante da escola Daitan Aikido. Disponível pelo <a href="https://daitanaikido.hotmart.host/pagina-de-vendas-db3aaccb-d22f-4871-bae3-81b546106596" target="_blank">link</a>.</li>
                     </ul>
                 </div>
             </div>
@@ -461,19 +519,18 @@
             <h2>Redes Sociais</h2>
             <div class="redes-sociais">
                 <div class="content-section">
-                    <p>Siga-nos nas redes sociais para ficar por dentro das novidades, eventos e conteúdos exclusivos:
-                    </p>
-					<div class="social-icons">
-						<a href="https://instagram.com/daitanaikido" target="_blank">
-					<img src="instagram.png" alt="Instagram" style="width: 48px; height: 48px;">
-					</a>
-					<a href="https://facebook.com/Uerlison" target="_blank">
-						<img src="facebook.svg" alt="Facebook" style="width: 48px; height: 48px;">
-					</a>
-					<a href="https://www.youtube.com/@daitanaikido" target="_blank">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" style="width: 48px; height: 48px;">
-					</a>
-					</div>
+                    <p>Siga-nos nas redes sociais para ficar por dentro das novidades, eventos e conteúdos exclusivos:</p>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/daitanaikido" target="_blank">
+                            <img src="instagram.png" alt="Instagram" style="width: 48px; height: 48px;">
+                        </a>
+                        <a href="https://facebook.com/Uerlison" target="_blank">
+                            <img src="facebook.svg" alt="Facebook" style="width: 48px; height: 48px;">
+                        </a>
+                        <a href="https://www.youtube.com/@daitanaikido" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" style="width: 48px; height: 48px;">
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -482,34 +539,33 @@
     <footer>
         <p>&copy;Daitan Aikido. Todos os direitos reservados.</p>
     </footer>
-	
-	<a href="https://wa.me/719866225839?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20Daitan%20Dojo%20Aikido." class="whatsapp-icon" target="_blank" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background-color: #25D366; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
-		<img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" style="width: 40px; height: 40px;">
-	</a>
+    
+    <a href="https://wa.me/719866225839?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20Daitan%20Dojo%20Aikido." class="whatsapp-icon" target="_blank" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background-color: #25D366; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+        <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" style="width: 40px; height: 40px;">
+    </a>
 
     <script>
         document.querySelector('.menu-toggle').addEventListener('click', function () {
             document.querySelector('nav ul').classList.toggle('active');
         });
     </script>
-	
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			const whatsappIcon = document.querySelector('.whatsapp-icon');
-			const firstSection = document.querySelector('#aikido');
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const whatsappIcon = document.querySelector('.whatsapp-icon');
+            const firstSection = document.querySelector('#aikido');
 
-			window.addEventListener('scroll', function() {
-				const sectionTop = firstSection.getBoundingClientRect().top;
+            window.addEventListener('scroll', function() {
+                const sectionTop = firstSection.getBoundingClientRect().top;
 
-				if (sectionTop <= window.innerHeight) {
-					whatsappIcon.classList.add('show');
-				} else {
-					whatsappIcon.classList.remove('show');
-				}
-			});
-		});
-	</script>
-
+                if (sectionTop <= window.innerHeight) {
+                    whatsappIcon.classList.add('show');
+                } else {
+                    whatsappIcon.classList.remove('show');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
