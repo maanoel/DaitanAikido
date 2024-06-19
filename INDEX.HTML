@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daitan Dojo - Aikido</title>
+    <link rel="icon" href="daitan_aikido.png" type="image/png">
+    <meta name="description" content="Daitan Aikido - Aikido: Descubra a Arte do Aikido na Bahia. Aulas, serviços, e produtos relacionados ao Aikido.">
+    <meta name="keywords" content="Aikido, Daitan Aikido, Artes Marciais, Defesa Pessoal, Bahia">
+    <link rel="canonical" href="https://www.daitandojo.com.br/">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background-color: #000000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin-bottom: 5px;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                width: 200px;
+                padding: 20px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        .banner {
+            background-image: url('sensei_banner.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .banner h1,
+        .banner p {
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner h1 {
+            font-size: 70px;
+            margin: 0;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .banner p {
+            font-size: 28px;
+            margin: 10px 0 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .container {
+            padding: 100px 20px 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        section h2 {
+            border-bottom: 4px solid #007bff;
+            padding-bottom: 10px;
+            font-size: 36px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #000000;
+        }
+
+        .about,
+        .aikido,
+        .dojo,
+        .professores,
+        .servicos,
+        .redes-sociais,
+        .produtos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .about img,
+        .aikido img,
+        .dojo img,
+        .professores img,
+        .servicos img,
+        .redes-sociais img,
+        .produtos img {
+            flex: 1;
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about div,
+        .aikido div,
+        .dojo div,
+        .professores div,
+        .servicos div,
+        .redes-sociais div,
+        .produtos div {
+            flex: 2;
+            line-height: 1.6;
+        }
+
+        .about div p,
+        .aikido div p,
+        .dojo div p,
+        .professores div p,
+        .servicos div p,
+        .redes-sociais div p,
+        .produtos div p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .whatsapp-icon.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .whatsapp-icon:hover {
+            background-color: #20b557;
+        }
+
+        .whatsapp-icon img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .content-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img width="40%" src="daitan_aikido.png" alt="Brasão Daitan Dojo">
+            </div>
+            <ul>
+                <li><a href="#aikido">Aikido</a></li>
+                <li><a href="#daitan-aikido">Daitan Aikido</a></li>
+                <li><a href="#professores">Professores</a></li>
+				<li><a href="#dojo">Dojo</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+				<li><a href="#produtos">Produtos</a></li>
+                <li><a href="#redes-sociais">Redes Sociais</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <h1>Daitan Aikido</h1>
+        <p>Descubra a Arte do Aikido</p>
+    </div>
+
+    <div class="container">
+        <section id="aikido">
+            <h2>Aikido</h2>
+            <div class="aikido">
+                <img src="morihei_ueshiba.png" alt="Prática de Aikido">
+                <div class="content-section">
+                    <p>Aikido (em japonês: 合気道, aikidō) é uma arte marcial japonesa desenvolvida pelo mestre Morihei
+                        Ueshiba (1883-1969), aproximadamente entre os anos de 1930 e 1960, como um compêndio dos seus
+                        estudos marciais, filosofia e crenças religiosas.</p>
+                    <p>O aikido é, frequentemente, traduzido como "o caminho 道(DO) da unificação合(AI) com a energia da
+                        vida 気(KI)", ou "o caminho do espírito harmonioso". Consciente de que não poderia haver harmonia
+                        na destruição, Ô-Sensei começou a desenvolver os conceitos de sua própria Arte Marcial, em que
+                        não mais havia a ideia de vencer ou destruir um inimigo, mas pura e tão somente a de encerrar um
+                        conflito.</p>
+                    <p>O cerne desta arte marcial orbita em torno do uso pragmático da energia num combate, no controle
+                        desse fluxo. Os praticantes desta arte respeitosamente chamam seu criador de O-Sensei ("Grande
+                        Mestre"), ou "fundador".</p>
+                    <p>O Aikido foca na neutralização do atacante através do redirecionamento do ataque. Conhecida como
+                        a Arte da Paz, esta arte marcial procura usar o movimento do agressor contra ele mesmo. Pode ser
+                        estudada e praticada por pessoas de qualquer idade e das mais variadas profissões. No Aikido não
+                        há competição! O objetivo é que cada um vença a si mesmo. Vença seus medos e ideias errôneas.
+                        Esse conjunto torna o Aikido numa arte marcial ideal para todos e todas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="daitan-aikido">
+            <h2>Daitan Aikido</h2>
+            <div class="about">
+                <img src="sensei_uerlison_simoes.jpg" alt="Sensei Uerlison Simões">
+                <div class="content-section">
+                    <p>Criado em 2022 pelo Sensei Uerlison Simões, o Daitan Aikido surgiu de uma paixão pela arte
+                        marcial e a vontade de difundir o Aikido na Bahia. Teve como primeira sede o Clube da APPM,
+                        localizado em Lauro de Freitas. Contou com o apoio fundamental dos Aikidocas Cristiano Tosta de
+                        Salvador/BA, João Ricardo e Igor de Feira de Santana/BA e Denilton de Camaçari/BA. Essa união
+                        foi fundamental para a criação e fortalecimento do grupo.</p>
+                    <p>As aulas ocorrem em dias e horários diferentes em cada uma das sedes, de acordo com as
+                        características da localidade e demandas dos alunos e Senseis responsáveis. Além das artes
+                        marciais, o Daitan Aikido também atua nas áreas de saúde e bem-estar, oferecendo vários
+                        serviços:</p>
+                    <ul>
+                        <li>Aulas particulares de defesa pessoal</li>
+                        <li>Aikido Até Você – aulas em condomínios</li>
+                        <li>Aikido na sua Empresa – Aplicando o Aikido como atividade laboral</li>
+                        <li>Defesa pessoal para mulheres através do Projeto “Sexo Frágil? A Opção É Sua!”</li>
+                        <li>Defesa Pessoal e Especialização de forças de segurança pública e privada</li>
+                        <li>Aikido Kids – aulas de Aikido para crianças no Dojo e em escolas</li>
+                        <li>Palestras e Segurança VIP</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="professores">
+            <h2>Professores</h2>
+            <div class="professores">
+                <div class="content-section">
+                    <p>Sensei Uerlison Simões – 3º Dan, iniciou a prática de Aikido em 2007 e se apaixonou pela arte.
+                        Especialista em Segurança de Autoridades. Instrutor de Defesa Pessoal credenciado pela Polícia
+                        Federal. Instrutor de Defesa Pessoal para Forças de Segurança Pública e Privada. Instrutor de
+                        Defesa Pessoal para Segurança VIP. Pós graduando em Metodologia e Didática das Artes Marciais,
+                        Esportes de Combate e Lutas. Responsável pelo Daitan Aikido em Lauro de Freitas e Diretor
+                        Técnico do Daitan Aikido. Bacharel em Administração com ênfase em Gestão Negócios, MBA em
+                        Controladoria e Finanças.</p>
+                    <p>Sensei Cristiano Tosta – 1° Dan, iniciou a prática de Aikido em 2012. Capacitação e metodologia
+                        de aulas para crianças, jovens e adultos. Cursos em pedagogia com didática positiva para jovens
+                        e adolescentes. Instrutor de Defesa pessoal credenciado pela Polícia federal. Detentor de
+                        didática moderna e criativa, desenvolve o trabalho de inclusão social para jovens e adolescentes
+                        em várias localidades, realiza cursos e palestras como instrutor de defesa pessoal para homens e
+                        mulheres. Colaborador e propulsor na criação do módulo "Aikidô kids", com aulas para crianças de
+                        04 a 14 anos, com uma proposta muito positiva para todos os grupos, levando a mensagem da
+                        prática de exercícios físicos e o cuidado que devemos ter com a nossa saúde. Bacharel em
+                        Administração de empresas com cursos profissionalizantes.</p>
+                </div>
+                <img src="sensei_cristiano.jpg" alt="Sensei Cristiano Tosta">
+            </div>
+        </section>
+		
+        <section id="dojo">
+            <h2>Dojo</h2>
+            <div class="dojo">
+                <div class="content-section">
+                    <p>⦁ Lauro de Freitas – no Clube da APPM, Av. José Leite, s/n, em frente ao Condomínio Family.<br>
+                        Telefone: (71) 986225839, Uerlison Simões Sensei;<br>
+                        ⦁ Salvador – na Av. Paralela, ao lado do Parque de Exposições.<br>
+                        Telefone: (71) 99235-4301, Cristiano Tosta Sensei;<br>
+                        ⦁ Feira de Santana – no Aikidojo, Rua Miranda, 650b, Mangabeira.<br>
+                        Telefone: (75) 99173-0009, João Ricardo Sensei;<br>
+                        ⦁ Camaçari – na Academia Absolute, Av. Radial A, s/n, Centro.<br>
+                        Telefone: (71) 98844-6975, Denilton - Instrutor.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos">
+            <h2>Serviços</h2>
+            <div class="servicos">
+                <div class="content-section">
+                    <ul>
+                        <li>Aulas de Aikido</li>
+                        <li>Aulas particulares de Defesa Pessoal</li>
+                        <li>Defesa Pessoal para Mulheres – projeto “Sexo Frágil? A Opção é Sua!”</li>
+                        <li>Aikido Até Você – Aulas em Condomínios</li>
+                        <li>Aikido na sua Empresa – Atividade Laboral em SIPAT e afins</li>
+                        <li>Defesa Pessoal e Especialização para Forças de Segurança Pública e Privada – Imobilizações Táticas</li>
+                        <li>Aikido Kids – Aulas de Aikido para crianças no Dojo e em escolas</li>
+                        <li>Segurança VIP</li>
+                        <li>Palestras</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+		<section id="produtos">
+            <h2>Produtos</h2>
+            <div class="produtos">
+                <div class="content-section">
+                    <ul>
+                        <li>Kimonos ou Dogi</li>
+                        <li>Camisas</li>
+                        <li>Kit armas de madeira: Bokken (espada de madeira), Jo (bastão de madeira), Tanto (faca de
+                            madeira)</li>
+                        <li>Livro: Ebook Aikido - O seu caminho para um novo rumo. Recomendado para os iniciantes e para
+                            os mais graduados também. Autor: Nelson Faria, praticante da escola Daitan Aikido.
+                            Disponível pelo <a
+                                href="https://daitanaikido.hotmart.host/pagina-de-vendas-db3aaccb-d22f-4871-bae3-81b546106596"
+                                target="_blank">link</a>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="redes-sociais">
+            <h2>Redes Sociais</h2>
+            <div class="redes-sociais">
+                <div class="content-section">
+                    <p>Siga-nos nas redes sociais para ficar por dentro das novidades, eventos e conteúdos exclusivos:
+                    </p>
+					<div class="social-icons">
+						<a href="https://instagram.com/daitanaikido" target="_blank">
+					<img src="instagram.png" alt="Instagram" style="width: 48px; height: 48px;">
+					</a>
+					<a href="https://facebook.com/Uerlison" target="_blank">
+						<img src="facebook.svg" alt="Facebook" style="width: 48px; height: 48px;">
+					</a>
+					<a href="https://www.youtube.com/@daitanaikido" target="_blank">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" style="width: 48px; height: 48px;">
+					</a>
+					</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy;Daitan Aikido. Todos os direitos reservados.</p>
+    </footer>
+	
+	<a href="https://wa.me/719866225839?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20Daitan%20Dojo%20Aikido." class="whatsapp-icon" target="_blank" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background-color: #25D366; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
+		<img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" style="width: 40px; height: 40px;">
+	</a>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+	
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const whatsappIcon = document.querySelector('.whatsapp-icon');
+			const firstSection = document.querySelector('#aikido');
+
+			window.addEventListener('scroll', function() {
+				const sectionTop = firstSection.getBoundingClientRect().top;
+
+				if (sectionTop <= window.innerHeight) {
+					whatsappIcon.classList.add('show');
+				} else {
+					whatsappIcon.classList.remove('show');
+				}
+			});
+		});
+	</script>
+
+</body>
+
+</html>
