@@ -310,6 +310,7 @@ footer {
 .dojos-location strong {
 	font-size: 18px;
 	color: #333;
+	margin-right: 15px;
 }
 
 .dojos-contact a {
@@ -379,19 +380,13 @@ ul {
 }
 
 /* Botão de Fechar */
-.close {
+.close, 
+.closeMap {
     color: #aaa;
     float: right;
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
-}
-
-/* Hover e foco no botão de fechar */
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
 }
 
 /* Estilos dos itens clicáveis */
@@ -409,7 +404,7 @@ ul {
 }
 
 .line::after {
-	content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAqtJREFUSEvllV9olXUYxz/fs7lzTnMzWCvyNthl7LwLRYkykMBoOQLBrvbXuVKEvBPJoEK6KRAVneXGRLrpRjfBC5ESKTE652B0E+JljFgKlnhed7b3G++7nbU/Z2yLduV7+Xuf9/k87+d53ucV63xpnfPztAG2OZsovaXSatWuoMhKB7wp6LZ5TeLFOLHNuMQNi+Enea6BvBxwWUB9q1vLKU6nYLvNHxKjgruzgBaLdwTP2/wQwYFyUXeqQaoC0jkPSJww/CnzUbiJC3yvqQUJdrg285BOw6cSTYZDTwoaXAxZAsgE/gw4qogrtXV0/f2T7lceyua8F/GexViY53yspqHNz5UjRhBvAcfDgo7OhywAZAN/aPgygouTjXQvrrp+q1+YLjMOSDBWKtABitjjmsw9zgE9cXFhQccrkDlAJvA+4JzMmVKRA9Ua17DFTeUpJmJAksD0hUWdn0nmVCbgDNBvGKjoSgLrAr+cMrcR34Uv0c63mq5UkAncZXGzBh5Pm1OCd+dVN1oqaPeckrgvfzEGvJES2x/nVUgAz7Q5iMyPkADeng/IBh41tFedEHG5lFfHEoDZEYmtkwX9MqcoHXi/4GysKSzwfuIWyLS5D/NV1Tk3vWFRQ3OKcgwiemfVJecLm5zzYYsvMN+EKbrIqxy7zQZcWvwWgtHZJnu2yXER3YgjYV6fL2nyPOfJmAJXa03no6ImwMrk6FFqRpUjxsIiQ/EgbMy5eUqMALswn4RFfbzsmFZupAP3C07aPJA4FjYyvORDa/OGtOmOk0o8izgY5vX1ih9aJSCeLEWcVopXDRPJqjC/xVotWuxkVTTb3HQNH0z+rF9XvSr+DbTSr7BTTpbd64LNM+PP7zI3gOGwyPX/tOyqTs3/v66rYtZ0+LT9MtckZyb4H0YPEChMDBm2AAAAAElFTkSuQmCC');
+	content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAA5BJREFUWEfFl01IVFEYht8pDRsmNdCaEVGTMbRCFxlB5B+ULUqQICpLm2ibkIswaKEiUkJBYNAqmujPaCNUi9z4V1HgRhEtFZ0BQ0ulycTGCoz3XM/MnXHu3HudwAPDhbnnfN/z/Zz3nGvBBg/LBvuHcQDn8ZumYJOzZ9Df1gHAE22dMYDUfdNwFNpNAfzwANbUHoy8KDUDkBU22YOD9Yfx6XkfLk+a8i8m390F5J4uwsfWt1qLgxnILh/DRKcTSasMW2wzmB1yIO9UN1L2lKC40TzAy4vA0mwrxl9f0wewOX7B9T5BADB97kN+LE5vBbAiopdgZjAG3cCH20ogGsOCwtorGG5vxtKsLcQJIWwOQihQ6x3STvj6bWl+/FluYQlWcL4LSI7ByXrgfB6go8qvAFxfCZogsZmIzc5Xw7ZYhA4oADTErqXz4gYg3xU5Lm83MPgQ4FM6l9nLv6C9LpK1EAA2TG8TkFkKJGUiYtc/LgOYOgKKeatlIwwHu57/872RLIYASAN8hhtgpI/KAEbI7djbqGSB/3PQKd/xySD4f8UDfYg1AFrNxMgzShQHfU3Azy8e5JysDghMVvkZbEIzfi+mo/JJAgbciiU97TAEIEtDLWCP5FTUob/tTkRW+343lr6eQ01fXEjGtAIzBMDomV7Wfm54rbZTqtVSK5VTZotbPCYARs3ohWSoTs/E9BEsTOWKZks7EA6m7Cyure7S7gXdDMjmo5GgNAOs+ffRZ4EDio7ibVcxN3RLBCtlnbsiWjPqArD+3h6lBG9qg5rOu4E1tV4Yl7tHfejw+D7WZhc7Re4OXR2INIEZYBSsY2gJspCYPoaCS3Fi2cD9v1iYileZUErANWqVDfehmwEukHWkDmzffRaeznZhh2VYmLwB6w4fpt7VAVDUSJaHZeOaaPcIQwDMAJWRXd1R5cfemqPRLhii/pVPExSp9io9ENMuUDciBWb8lQ8ZRyrWQDDy5fl7cJ5IRoFLP3pCGcoAJ0rpZVoZGeWWN6aUvM+YH90M2067uE3JY51Zo3L+FyWU6ZMQ8qQkCH+Bk9AFcNfQeVGDvnNTGZAQdEgH0imj5GCtJQyds1/kYAmpouoh3xsuQXgTSaPyGCaQ+nhWz6eUq4e8b/AZAFjvpVO7v429EQBULWuK3dAFwphZY7OYxW8DPuW7gDdj34S5Lx9jbrRn+bxzPDuMfZrF6izK+g0H+AeHJYz2JZg1gQAAAABJRU5ErkJggg==');
     position: absolute;
     right: 10px;
     font-size: 16px;
@@ -418,7 +413,73 @@ ul {
 	
 }
 
+.dojos-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dojos-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dojos-location,
+.dojos-contact {
+    flex: 1;
+}
+
+.dojos-location {
+    margin-right: 20px;
+}
+
+.dojos-contact {
+    margin-right: 20px;
+}
+
+.open-map {
+    margin-left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.open-map:hover {
+    background-color: #0056b3;
+}
+
 /* Responsividade */
+@media (max-width: 768px) {
+    .dojos-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dojos-location,
+    .dojos-contact {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .open-map {
+        align-self: flex-start;
+		margin-left:-5px;
+    }
+}
+
+
 @media (max-width: 768px) {
     .modal-content {
         width: 95%; 
@@ -433,7 +494,7 @@ ul {
         padding: 15px; 
     }
 
-    .close {
+    .close, .closeMap{
         font-size: 20px; 
     }
 

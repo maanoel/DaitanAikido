@@ -10,6 +10,8 @@
     <meta name="keywords" content="Aikido, Daitan Aikido, Artes Marciais, Defesa Pessoal, Bahia">
     <link rel="canonical" href="https://www.daitanaikido.com.br/">
     <link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -124,37 +126,41 @@
             </div>
         </section>
 		
-        <section id="dojo">
-            <h2>Dojo</h2>
-            <div class="content-section">
-                <ul class="dojos-list">
-                    <li>
-                        <div class="dojos-location">
-                            <strong>Lauro de Freitas:</strong>&nbsp no Clube da APPM, Av. José Leite, s/n, em frente ao Condomínio Family.
-                        </div>
-                        <div class="dojos-contact">
-                            <a href="tel:+5571986225839">(71) 98622-5839</a>, Uerlison Simões Sensei
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dojos-location">
-                            <strong>Salvador:</strong>&nbsp na Av. Paralela, ao lado do Parque de Exposições.
-                        </div>
-                        <div class="dojos-contact">
-                            <a href="tel:+5571992354301">(71) 99235-4301</a>, Cristiano Tosta Sensei
-                        </div>
-                    </li>
-                    <li>
-                        <div class="dojos-location">
-                            <strong>Feira de Santana:</strong>&nbsp no Aikidojo, Rua Miranda, 650b, Mangabeira.
-                        </div>
-                        <div class="dojos-contact">
-                            <a href="tel:+5575991730009">(75) 99173-0009</a>, João Ricardo Sensei
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
+       <section id="dojo">
+			<h2>Dojo</h2>
+			<div class="content-section">
+				<ul class="dojos-list">
+					<li>
+						<div class="dojos-location">
+							<strong>Lauro de Freitas:</strong>&nbsp Clube da APPM, Av. José Leite, s/n, em frente ao Condomínio Family.
+						</div>
+						<div class="dojos-contact">
+							<a href="tel:+5571986225839">(71) 98622-5839</a>- Uerlison Simões Sensei
+						</div>
+						<button class="open-map" data-location="Lauro de Freitas">Ver Localização</button>
+					</li>
+					<li>
+						<div class="dojos-location">
+							<strong>Salvador:</strong> Av. Paralela, ao lado do Parque de Exposições.
+						</div>
+						<div class="dojos-contact">
+							<a href="tel:+5571992354301">(71) 99235-4301</a>- Cristiano Tosta Sensei
+						</div>
+						<button class="open-map" data-location="Salvador">Ver Localização</button>
+					</li>
+					<li>
+						<div class="dojos-location">
+							<strong>Feira de Santana:</strong>&nbsp Aikidojo, Rua Miranda, 650b, Mangabeira.
+						</div>
+						<div class="dojos-contact">
+							<a href="tel:+5575991730009">(75) 99173-0009</a>- João Ricardo Sensei
+						</div>
+						<button class="open-map" data-location="Feira de Santana">Ver Localização</button>
+					</li>
+				</ul>
+			</div>
+		</section>
+
 
         <section id="servicos">
             <h2>Serviços</h2>
@@ -164,7 +170,7 @@
 						<li title="Clique para ver a imagem" class="line" data-image="service1.jpeg">Aulas de Aikido</li> 
                         <li title="Clique para ver a imagem" class="line" data-image="intensivos.jpeg">Treinos Intensivos</li>
                         <li title="Clique para ver a imagem" class="line" data-image="defesa_mulheres.jpeg">Defesa Pessoal para Mulheres – projeto “Sexo Frágil? A Opção é Sua!”</li>
-                        <li title="Clique para ver a imagem" class="line"  data-image="ate_voce.jpeg">Aikido Até Você – Aulas em Condomínios</li>
+                        <li title="Clique para ver a imagem" class="line" data-image="ate_voce.jpeg">Aikido Até Você – Aulas em Condomínios</li>
                         <li title="Clique para ver a imagem" class="line" data-image="aikido_empresa.jpeg">Aikido na sua Empresa – Atividade Laboral em SIPAT e afins</li>
                         <li title="Clique para ver a imagem" class="line" data-image="aikido_seguranca.jpeg">Defesa Pessoal e Especialização para Forças de Segurança Pública e Privada – Imobilizações Táticas</li>
                         <li title="Clique para ver a imagem" class="line" data-image="aikido_kids.png">Aikido Kids – Aulas de Aikido para crianças no Dojo e em escolas</li>
@@ -222,6 +228,13 @@
 			<img id="modalImage" alt="Imagem do Serviço">
 		</div>
 	</div>
+	
+	<div id="mapModal" class="modal">
+    <div class="modal-content">
+			<span class="closeMap">&times;</span>
+			<div id="map" style="width: 100%; height: 400px;"></div>
+		</div>
+	</div>
 
     <script>
 		document.querySelector('.menu-toggle').addEventListener('click', function () {
@@ -245,32 +258,90 @@
     </script>
 	
 	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			const modal = document.getElementById('imageModal');
-			const modalImage = document.getElementById('modalImage');
-			const closeModal = document.querySelector('.modal .close');
-			
-			document.querySelectorAll('.line').forEach(item => {
-				item.addEventListener('click', function() {
-					const imagePath = this.getAttribute('data-image');
-					if(imagePath){
-						modalImage.src = imagePath;
-					}
-					
-					modal.style.display = 'block';
-				});
-			});
-
-			closeModal.addEventListener('click', function() {
-				modal.style.display = 'none';
-			});
-
-			window.addEventListener('click', function(event) {
-				if (event.target == modal) {
-					modal.style.display = 'none';
+	document.addEventListener('DOMContentLoaded', function() {
+		initImageModal();
+		initModalMap();
+	});
+	
+	function initImageModal() {
+		const modal = document.getElementById('imageModal');
+		const modalImage = document.getElementById('modalImage');
+		const closeModal = document.querySelector('.modal .close');
+		
+		document.querySelectorAll('.line').forEach(item => {
+			item.addEventListener('click', function() {
+				const imagePath = this.getAttribute('data-image');
+				if(imagePath){
+					modalImage.src = imagePath;
 				}
+				
+				modal.style.display = 'block';
 			});
 		});
+
+		closeModal.addEventListener('click', function() {
+			modal.style.display = 'none';
+		});
+
+		window.addEventListener('click', function(event) {
+			if (event.target == modal) {
+				modal.style.display = 'none';
+			}
+		});
+	}
+	
+	function initModalMap() {
+		const modal = document.getElementById('mapModal');
+		const closeModal = document.querySelector('.modal .closeMap');
+		let map; 
+
+		document.querySelectorAll('.open-map').forEach(button => {
+			button.addEventListener('click', function() {
+				const location = this.getAttribute('data-location');
+				showModal(location);
+			});
+		});
+
+		closeModal.addEventListener('click', function() {
+			modal.style.display = 'none';
+		});
+
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = 'none';
+			}
+		}
+
+		function showModal(location) {
+			modal.style.display = 'block';
+			initMap(location);
+		}
+
+		function initMap(location) {
+			var locations = {
+				'Lauro de Freitas': {lat: -12.88755, lng: -38.33600},
+				'Salvador': {lat: -12.92294, lng: -38.35783},
+				'Feira de Santana': {lat: -12.22259, lng: -38.95055}
+			};
+
+			if (map) {
+				map.remove();
+			}
+
+			map = L.map('map').setView(locations[location], 16);
+
+			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+			}).addTo(map);
+
+			L.marker(locations[location]).addTo(map)
+				.bindPopup('<b>' + location + '</b><br>Daitan Dojo')
+				.openPopup();
+		}
+	}
+
+
 	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 </body>
 </html>
