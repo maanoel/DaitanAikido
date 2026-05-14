@@ -1,26 +1,268 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daitan Aikido</title>
-    <link rel="icon" href="daitan_aikido.png" type="image/png">
-    <meta name="description" content="Daitan Aikido - Aikido: Treinar e Evoluir sempre. Aulas, serviços, e produtos relacionados ao Aikido.">
-    <meta name="keywords" content="Aikido, Daitan Aikido, Artes Marciais, Defesa Pessoal, Bahia">
+    
+    <!-- SEO Técnico Otimizado (2026) -->
+    <title>Daitan Aikido | Aulas de Aikido e Defesa Pessoal na Bahia</title>
+    <meta name="description" content="Aprenda Aikido e Defesa Pessoal com o Daitan Dojo. Treinar e evoluir sempre. Aulas para adultos, crianças e mulheres em Lauro de Freitas, Salvador e Feira de Santana.">
     <link rel="canonical" href="https://www.daitanaikido.com.br/">
-    <link rel="stylesheet" href="styles.css?v=1">
-	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-	<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="icon" href="daitan_aikido.png" type="image/png">
+
+    <!-- Open Graph (Compartilhamento Premium no WhatsApp e Redes Sociais) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.daitanaikido.com.br/">
+    <meta property="og:title" content="Daitan Aikido | Treinar e Evoluir Sempre">
+    <meta property="og:description" content="Aprenda Aikido em Lauro de Freitas, Salvador e Feira de Santana. Artes Marciais e Defesa Pessoal.">
+    <meta property="og:image" content="https://www.daitanaikido.com.br/daitan_aikido_2.jpg">
+
+    <!-- Tipografia Premium: Cinzel e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Leaflet Mapa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" media="print" onload="this.media='all'">
+    <script defer src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- SEO Semântico: Schema.org para Dojos e Negócios Locais -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": "Daitan Aikido",
+      "image": "https://www.daitanaikido.com.br/daitan_aikido.png",
+      "url": "https://www.daitanaikido.com.br/",
+      "description": "Dojo de Aikido focado em desenvolvimento físico e mental, defesa pessoal e disciplina na Bahia."
+    }
+    </script>
+
+    <!-- Design System UI/UX (Paleta Dark Luxury & Serious Dojo) -->
+    <style>
+        :root {
+            /* Cores de Fundo (Inspiradas no Logo: Preto, Cinza Escuro e Prata) */
+            --bg-base: #050505;       /* Preto absoluto/sério */
+            --bg-surface: #111111;    /* Cinza extremamente escuro para cards */
+            
+            /* Textos */
+            --text-main: #ffffff;     /* Branco para alto contraste */
+            --text-muted: #a3a3a3;    /* Prata/Cinza para textos de apoio */
+            
+            /* Ação (Discreto e elegante) */
+            --accent-red: #8B0000;    /* Vermelho escuro/sangue (Discreto, apenas para interações sutis) */
+            
+            /* Transparências */
+            --glass-bg: rgba(5, 5, 5, 0.9);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Títulos */
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 600; color: var(--text-main); }
+        h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3.5rem; position: relative; letter-spacing: 1px; }
+        h2::after {
+            content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
+            width: 50px; height: 3px; background: var(--text-muted); border-radius: 2px;
+        }
+        p { margin-bottom: 1.2rem; }
+
+        /* Navbar Glassmorphism Escuro */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border); transition: var(--transition-smooth);
+        }
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1200px; margin: 0 auto; padding: 1rem 2rem;
+        }
+        .logo img { width: 55px; height: auto; transition: 0.3s; }
+        .logo img:hover { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); }
+        
+        nav ul { display: flex; gap: 1.5rem; list-style: none; }
+        nav a {
+            color: var(--text-main); text-decoration: none; font-size: 0.85rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1px; transition: var(--transition-smooth);
+        }
+        nav a:hover { color: var(--text-muted); }
+
+        .menu-toggle-name { display: none; font-size: 0.8rem; letter-spacing: 2px; color: var(--text-main); font-weight: 600; }
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+        .menu-toggle span { width: 25px; height: 2px; background: var(--text-main); transition: 0.3s; }
+
+        /* Hero Banner Cinematográfico com Foco no Rosto */
+        .banner {
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center;
+            text-align: center; 
+            padding: 0 2rem;
+            /* Definição da imagem de fundo */
+            background-image: linear-gradient(to bottom, rgba(5,5,5,0.7), var(--bg-base)), url('morihei_ueshiba.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* O SEGREDO: Foca no eixo Y em 15% (parte de cima onde está o rosto) no Desktop */
+            background-position: center 15%; 
+        }
+        .banner h1 { font-size: clamp(3rem, 6vw, 5rem); text-shadow: 0 10px 30px rgba(0,0,0,0.9); margin-bottom: 1rem; letter-spacing: 2px; }
+        .banner p { font-size: 1.2rem; font-weight: 300; letter-spacing: 3px; color: var(--text-muted); text-transform: uppercase; }
+
+        /* Layout Base */
+        main { padding-bottom: 4rem; }
+        section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .justificado { text-align: justify; }
+
+        /* Blocos (Aikido e Daitan) */
+        .flex-split { display: flex; gap: 4rem; align-items: center; background: var(--bg-surface); padding: 3rem; border-radius: 12px; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .flex-split img { width: 100%; max-width: 400px; border-radius: 8px; object-fit: cover; box-shadow: 0 10px 20px rgba(0,0,0,1); }
+        @media (max-width: 900px) { .flex-split { flex-direction: column; gap: 2rem; padding: 2rem; } }
+
+        /* Professores */
+        .professores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .prof-card {
+            background: var(--bg-surface); border-radius: 12px; border: 1px solid var(--glass-border);
+            padding: 2.5rem 2rem; text-align: center; transition: var(--transition-smooth);
+            display: flex; flex-direction: column; align-items: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        .prof-card:hover { transform: translateY(-5px); border-color: var(--text-muted); }
+        .prof-card img {
+            width: 160px; height: 160px; object-fit: cover; border-radius: 50%;
+            border: 3px solid var(--glass-border); margin-bottom: 1.5rem; padding: 5px; background: var(--bg-base);
+        }
+        .prof-bio {
+            text-align: justify; font-size: 0.95rem; color: var(--text-muted);
+            max-height: 220px; overflow-y: auto; padding-right: 10px; margin-top: 1rem;
+        }
+        .prof-bio::-webkit-scrollbar { width: 4px; }
+        .prof-bio::-webkit-scrollbar-track { background: var(--bg-base); }
+        .prof-bio::-webkit-scrollbar-thumb { background: var(--glass-border); }
+        .prof-bio::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        /* Cards em Grid com ESPAÇOS MAIORES (Serviços e Produtos) */
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3rem; }
+        
+        .card-item {
+            background: var(--bg-surface); border-radius: 8px; border: 1px solid var(--glass-border);
+            transition: var(--transition-smooth); display: flex; flex-direction: column; 
+            position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+        .card-item.clickable { cursor: pointer; }
+        .card-item:hover { transform: translateY(-5px); border-color: var(--text-muted); box-shadow: 0 15px 40px rgba(0,0,0,0.9); }
+        
+        /* IMAGENS BEM MAIORES (300px de altura) */
+        .card-img-wrapper { width: 100%; height: 300px; overflow: hidden; border-bottom: 1px solid var(--glass-border); background: var(--bg-base); }
+        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .card-item:hover .card-img-wrapper img { transform: scale(1.05); }
+        
+        /* Corpo do Card */
+        .card-body { padding: 2rem; display: flex; flex-direction: column; flex-grow: 1; justify-content: center; text-align: center; }
+        .card-body p { margin: 0; font-size: 1.05rem; color: var(--text-main); font-weight: 400; }
+        .card-icon-hint { font-size: 0.8rem; color: var(--text-muted); margin-top: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Card de Dojo (Apenas texto) */
+        .dojo-card { padding: 3rem 2rem; text-align: center; }
+
+        /* Botões e Links Discretos */
+        .btn-outline {
+            background: transparent; color: var(--text-main); border: 1px solid var(--text-muted); padding: 12px 24px;
+            border-radius: 4px; cursor: pointer; font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px;
+            margin-top: 1.5rem; transition: var(--transition-smooth); display: inline-block; text-decoration: none; width: 100%;
+        }
+        .btn-outline:hover { background: var(--text-main); color: var(--bg-base); }
+        .link-inline { color: var(--text-muted); text-decoration: none; border-bottom: 1px solid var(--text-muted); transition: 0.3s; font-weight: 500;}
+        .link-inline:hover { color: var(--text-main); border-bottom-color: var(--text-main); }
+
+        /* Redes Sociais - CORES ORIGINAIS */
+        .social-icons { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2rem; }
+        .social-icons a { 
+            transition: var(--transition-smooth); display: flex; justify-content: center; align-items: center; 
+            background: #ffffff; width: 60px; height: 60px; border-radius: 50%; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+        }
+        .social-icons a:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255,255,255,0.1); }
+        .social-icons img { width: 35px; height: 35px; object-fit: contain; }
+
+        /* Footer */
+        footer { text-align: center; padding: 2rem; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 0.9rem; background: var(--bg-base); }
+
+        /* Botão WhatsApp Restaurado */
+        .whatsapp-icon {
+            position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background-color: #25D366;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); z-index: 999; transition: var(--transition-smooth); opacity: 0; pointer-events: none;
+        }
+        .whatsapp-icon.show { opacity: 1; pointer-events: all; }
+        .whatsapp-icon:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+        .whatsapp-icon img { width: 35px; height: 35px; } 
+
+        /* Modais */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); backdrop-filter: blur(5px); overflow: hidden;
+        }
+        .modal-content {
+            margin: auto; display: block; max-width: 90%; max-height: 85vh; margin-top: 5vh;
+            position: relative; animation: zoomIn 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); border-radius: 8px; background: var(--bg-surface);
+        }
+        @keyframes zoomIn { from {transform: scale(0.95); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+        .close, .closeMap {
+            position: absolute; top: -40px; right: 0px; color: var(--text-muted); font-size: 35px;
+            font-weight: bold; cursor: pointer; z-index: 2001; transition: 0.3s;
+        }
+        .close:hover, .closeMap:hover { color: var(--text-main); }
+        #modalImage { width: 100%; height: auto; object-fit: contain; max-height: 80vh; border-radius: 8px; }
+
+        /* Animações Scroll Reveal */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Menu Mobile e Ajuste da Banner para Celular */
+        @media (max-width: 900px) {
+            .banner {
+                /* No celular (tela vertical), voltamos a centralizar perfeitamente */
+                background-position: center center; 
+            }
+            .menu-toggle { display: flex; z-index: 1001; }
+            .menu-toggle-name { display: block; margin-right: 15px; }
+            nav ul {
+                position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+                background: var(--bg-surface); flex-direction: column; justify-content: center; align-items: center;
+                transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); border-left: 1px solid var(--glass-border); box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+            }
+            nav ul.active { right: 0; }
+            .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        }
+    </style>
 </head>
 
 <body>
     <header>
-        <nav>
+        <nav aria-label="Menu Principal">
             <div class="logo">
-                <img width="40%" src="daitan_aikido.png" alt="Brasão Daitan Dojo">
+                <img src="daitan_aikido.png" alt="Brasão Daitan Dojo">
             </div>
-            <ul>
+            <ul id="nav-menu">
                 <li><a href="#aikido">Aikido</a></li>
                 <li><a href="#daitan-aikido">Daitan Aikido</a></li>
                 <li><a href="#professores">Professores</a></li>
@@ -29,352 +271,377 @@
                 <li><a href="#produtos">Produtos</a></li>
                 <li><a href="#redes-sociais">Redes Sociais</a></li>
             </ul>
-			<div class="menu-toggle-name">MENU</div>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div style="display:flex; align-items:center;">
+                <div class="menu-toggle-name">MENU</div>
+                <button class="menu-toggle" aria-label="Abrir Menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </nav>
     </header>
 
-    <div class="banner">
-        <h1>Daitan Aikido</h1>
-        <p>Treinar e evoluir sempre</p>
-    </div>
+    <main>
+        <div class="banner">
+            <h1 class="reveal">Daitan Aikido</h1>
+            <p class="reveal">Treinar e evoluir sempre</p>
+        </div>
 
-    <div class="container">
-        <section id="aikido">
+        <section id="aikido" class="reveal">
             <h2>Aikido</h2>
-            <div class="aikido" class="justificado" >
-                <img src="morihei_ueshiba.png" alt="Prática de Aikido">
-                <div class="content-section">
-                    <p>Aikido (em japonês: 合気道, aikidō) é uma arte marcial japonesa desenvolvida pelo mestre Morihei
-                        Ueshiba (1883-1969), aproximadamente entre os anos de 1930 e 1960, como um compêndio dos seus
-                        estudos marciais, filosofia e crenças religiosas.</p>
-                    <p>O aikido é, frequentemente, traduzido como "o caminho 道(DO) da unificação合(AI) com a energia da
-                        vida 気(KI)", ou "o caminho do espírito harmonioso". Consciente de que não poderia haver harmonia
-                        na destruição, Ô-Sensei começou a desenvolver os conceitos de sua própria Arte Marcial, em que
-                        não mais havia a ideia de vencer ou destruir um inimigo, mas pura e tão somente a de encerrar um
-                        conflito.</p>
-                    <p>O cerne desta arte marcial orbita em torno do uso pragmático da energia num combate, no controle
-                        desse fluxo. Os praticantes desta arte respeitosamente chamam seu criador de O-Sensei ("Grande
-                        Mestre"), ou "fundador".</p>
-                    <p>O Aikido foca na neutralização do atacante através do redirecionamento do ataque. Conhecida como
-                        a Arte da Paz, esta arte marcial procura usar o movimento do agressor contra ele mesmo. Pode ser
-                        estudada e praticada por pessoas de qualquer idade e das mais variadas profissões. No Aikido não
-                        há competição! O objetivo é que cada um vença a si mesmo. Vença seus medos e ideias errôneas.
-                        Esse conjunto torna o Aikido uma arte marcial ideal para todos e todas.</p>
+            <div class="flex-split">
+                <img src="morihei_ueshiba.png" loading="lazy" alt="Prática de Aikido">
+                <div class="content-section justificado">
+                    <p>Aikido (em japonês: 合気道, aikidō) é uma arte marcial japonesa desenvolvida pelo mestre Morihei Ueshiba (1883-1969), aproximadamente entre os anos de 1930 e 1960, como um compêndio dos seus estudos marciais, filosofia e crenças religiosas.</p>
+                    <p>O aikido é, frequentemente, traduzido como "o caminho 道(DO) da unificação合(AI) com a energia da vida 気(KI)", ou "o caminho do espírito harmonioso". Consciente de que não poderia haver harmonia na destruição, Ô-Sensei começou a desenvolver os conceitos de sua própria Arte Marcial, em que não mais havia a ideia de vencer ou destruir um inimigo, mas pura e tão somente a de encerrar um conflito.</p>
+                    <p>O cerne desta arte marcial orbita em torno do uso pragmático da energia num combate, no controle desse fluxo. Os praticantes desta arte respeitosamente chamam seu criador de O-Sensei ("Grande Mestre"), ou "fundador".</p>
+                    <p>O Aikido foca na neutralização do atacante através do redirecionamento do ataque. Conhecida como a Arte da Paz, esta arte marcial procura usar o movimento do agressor contra ele mesmo. Pode ser estudada e praticada por pessoas de qualquer idade e das mais variadas profissões. No Aikido não há competição! O objetivo é que cada um vença a si mesmo. Vença seus medos e ideias errôneas. Esse conjunto torna o Aikido uma arte marcial ideal para todos e todas.</p>
                 </div>
             </div>
         </section>
 
-        <section id="daitan-aikido">
+        <section id="daitan-aikido" class="reveal">
             <h2>Daitan Aikido</h2>
-            <div class="about justificado">
-				<img class="resize-img" src="daitan_aikido_2.jpg" alt="Logo Daitan Aikido">
-                <div class="content-section">
-                    <p>Criado em 2022 pelo Sensei Uerlison Simões, o Daitan Aikido surgiu de uma paixão pela arte
-                        marcial e a vontade de difundir o Aikido na Bahia. Teve como primeira sede o Clube da APPM,
-                        localizado em Lauro de Freitas. Contou com o apoio fundamental dos Aikidocas Cristiano Tosta de
-                        Salvador/BA, João Ricardo e Igor de Feira de Santana/BA. Essa união
-                        foi fundamental para a criação e fortalecimento do grupo.
-						As aulas ocorrem em dias e horários diferentes em cada uma das sedes, de acordo com as
-                        características da localidade e demandas dos alunos e Senseis responsáveis. 
-						</p>
-						
-				</div>
-			 </div>          
+            <div class="flex-split">
+                <div class="content-section justificado">
+                    <p>Criado em 2022 pelo Sensei Uerlison Simões, o Daitan Aikido surgiu de uma paixão pela arte marcial e a vontade de difundir o Aikido na Bahia. Teve como primeira sede o Clube da APPM, localizado em Lauro de Freitas. Contou com o apoio fundamental dos Aikidocas Cristiano Tosta de Salvador/BA, João Ricardo e Igor de Feira de Santana/BA. Essa união foi fundamental para a criação e fortalecimento do grupo. As aulas ocorrem em dias e horários diferentes em cada uma das sedes, de acordo com as características da localidade e demandas dos alunos e Senseis responsáveis.</p>
+                </div>
+                <img src="daitan_aikido_2.jpg" loading="lazy" alt="Logo Daitan Aikido">
+            </div>          
         </section>
 
-        <section id="professores">
+        <section id="professores" class="reveal">
             <h2>Professores</h2>
-			<div class="professores justificado">
-				<img class="resize-img" src="sensei_uerlison_simoes.jpg" alt="Sensei Uerlison Simões">
-                <div class="content-section">
-					<p>Sensei Uerlison Simões – 3º Dan, iniciou a prática de Aikido em 2007 e se apaixonou pela arte.
-						Especialista em Segurança de Autoridades. Instrutor de Defesa Pessoal credenciado pela Polícia
-						Federal. Instrutor de Defesa Pessoal para Forças de Segurança Pública e Privada. Instrutor de
-						Defesa Pessoal para Segurança VIP. Pós graduando em Metodologia e Didática das Artes Marciais,
-						Esportes de Combate e Lutas. Responsável pelo Daitan Aikido em Lauro de Freitas e Diretor
-						Técnico do Daitan Aikido. Bacharel em Administração com ênfase em Gestão Negócios, MBA em
-						Controladoria e Finanças.</p>
-                </div>
+            <div class="professores-grid">
+                <article class="prof-card">
+                    <img src="sensei_uerlison_simoes.jpg" loading="lazy" alt="Sensei Uerlison Simões">
+                    <h3>Sensei Uerlison Simões</h3>
+                    <div class="prof-bio">
+                        <p>Sensei Uerlison Simões – 3º Dan, iniciou a prática de Aikido em 2007 e se apaixonou pela arte. Especialista em Segurança de Autoridades. Instrutor de Defesa Pessoal credenciado pela Polícia Federal. Instrutor de Defesa Pessoal para Forças de Segurança Pública e Privada. Instrutor de Defesa Pessoal para Segurança VIP. Pós graduando em Metodologia e Didática das Artes Marciais, Esportes de Combate e Lutas. Responsável pelo Daitan Aikido em Lauro de Freitas e Diretor Técnico do Daitan Aikido. Bacharel em Administração com ênfase em Gestão Negócios, MBA em Controladoria e Finanças.</p>
+                    </div>
+                </article>
+
+                <article class="prof-card">
+                    <img src="sensei_cristiano.jpg" loading="lazy" alt="Sensei Cristiano Tosta">
+                    <h3>Sensei Cristiano Tosta</h3>
+                    <div class="prof-bio">
+                        <p>Sensei Cristiano Tosta – 2° Dan, iniciou a prática de Aikido em 2012. Capacitação e metodologia de aulas para crianças, jovens e adultos. Cursos em pedagogia com didática positiva para jovens e adolescentes. Instrutor de Defesa pessoal credenciado pela Polícia federal. Detentor de didática moderna e criativa, desenvolve o trabalho de inclusão social para jovens e adolescentes em várias localidades, realiza cursos e palestras como instrutor de defesa pessoal para homens e mulheres. Colaborador e propulsor na criação do módulo "Aikidô kids", com aulas para crianças de 04 a 14 anos, com uma proposta muito positiva para todos os grupos, levando a mensagem da prática de exercícios físicos e o cuidado que devemos ter com a nossa saúde. Bacharel em Administração de empresas com cursos profissionalizantes.</p>
+                    </div>
+                </article>
+
+                <article class="prof-card">
+                    <img src="sensei_joao.png" loading="lazy" alt="Sensei João">
+                    <h3>Sensei João Ricardo</h3>
+                    <div class="prof-bio">
+                        <p>Sensei João Ricardo - 2º Dan, iniciou a prática de Aikido em 2017, se apaixando pela arte e não parando desde então. Praticante de artes marciais desde a infância, sempre teve uma maior afinidade pelas disciplinas japonesas encontrando no Aikido um caminho de vida. Um dos intrutores responsáveis pelo Daitan Aikido na cidade de Feira de Santana.</p>
+                    </div>
+                </article>
             </div>
-			</br>
-            <div class="professores justificado" >
-				<img class="resize-img" src="sensei_cristiano.jpg" alt="Sensei Cristiano Tosta">
-                <div class="content-section">
-                    <p>Sensei Cristiano Tosta – 2° Dan, iniciou a prática de Aikido em 2012. Capacitação e metodologia
-                        de aulas para crianças, jovens e adultos. Cursos em pedagogia com didática positiva para jovens
-                        e adolescentes. Instrutor de Defesa pessoal credenciado pela Polícia federal. Detentor de
-                        didática moderna e criativa, desenvolve o trabalho de inclusão social para jovens e adolescentes
-                        em várias localidades, realiza cursos e palestras como instrutor de defesa pessoal para homens e
-                        mulheres. Colaborador e propulsor na criação do módulo "Aikidô kids", com aulas para crianças de
-                        04 a 14 anos, com uma proposta muito positiva para todos os grupos, levando a mensagem da
-                        prática de exercícios físicos e o cuidado que devemos ter com a nossa saúde. Bacharel em
-                        Administração de empresas com cursos profissionalizantes.</p>
+        </section>
+        
+        <section id="dojo" class="reveal">
+            <h2>Dojo</h2>
+            <div class="grid-cards">
+                <div class="card-item dojo-card">
+                    <h3 style="margin-bottom:15px; color: var(--text-main);">Lauro de Freitas</h3>
+                    <p>Av. Brg. Alberto C.Matos, 499 - Sobreloja - Pitangueiras.</p>
+                    <p style="margin-top:10px;"><a href="tel:+5571986225839" class="link-inline">(71) 98622-5839</a><br><span style="font-size:0.85rem; color: var(--text-muted);">Uerlison Simões Sensei</span></p>
+                    <button class="open-map btn-outline" data-location="Lauro de Freitas">Ver Localização no Mapa</button>
                 </div>
-            </div>
-			</br>
-			<div class="professores justificado">
-				<img class="resize-img" src="sensei_joao.png" alt="Sensei João">
-                <div class="content-section">
-                    <p>Sensei João Ricardo - 2º Dan, iniciou a prática de Aikido em 2017, se apaixando pela arte e não parando desde então.
-					Praticante de artes marciais desde a infância, sempre teve uma maior afinidade pelas disciplinas japonesas encontrando no Aikido um caminho de vida.
-					Um dos intrutores responsáveis pelo Daitan Aikido na cidade de Feira de Santana.</p>
+                <div class="card-item dojo-card">
+                    <h3 style="margin-bottom:15px; color: var(--text-main);">Salvador</h3>
+                    <p>Av. Paralela, ao lado do Parque de Exposições.</p>
+                    <p style="margin-top:10px;"><a href="tel:+5571992354301" class="link-inline">(71) 99235-4301</a><br><span style="font-size:0.85rem; color: var(--text-muted);">Cristiano Tosta Sensei</span></p>
+                    <button class="open-map btn-outline" data-location="Salvador">Ver Localização no Mapa</button>
+                </div>
+                <div class="card-item dojo-card">
+                    <h3 style="margin-bottom:15px; color: var(--text-main);">Feira de Santana</h3>
+                    <p>Dojo Benvindo, Rua Miranda, 650b, Mangabeira.</p>
+                    <p style="margin-top:10px;"><a href="tel:+5575991730009" class="link-inline">(75) 99173-0009</a><br><span style="font-size:0.85rem; color: var(--text-muted);">João Ricardo Sensei</span></p>
+                    <button class="open-map btn-outline" data-location="Feira de Santana">Ver Localização no Mapa</button>
                 </div>
             </div>
         </section>
-		
-       <section id="dojo">
-			<h2>Dojo</h2>
-			<div class="content-section">
-				<ul class="dojos-list">
-				<ul class="dojos-list">
-					<li>
-						<div class="dojos-location">
-							<strong>Lauro de Freitas:</strong>&nbsp Av. Brg. Alberto C.Matos, 499 - Sobreloja - Pitangueiras.
-						</div>
-						<div class="dojos-contact">
-							<a href="tel:+5571986225839">(71) 98622-5839</a>- Uerlison Simões Sensei
-						</div>
-						<button class="open-map" data-location="Lauro de Freitas">Ver Localização</button>
-					</li>
-					<li>
-						<div class="dojos-location">
-							<strong>Salvador:</strong> Av. Paralela, ao lado do Parque de Exposições.
-						</div>
-						<div class="dojos-contact">
-							<a href="tel:+5571992354301">(71) 99235-4301</a>- Cristiano Tosta Sensei
-						</div>
-						<button class="open-map" data-location="Salvador">Ver Localização</button>
-					</li>
-					<li>
-						<div class="dojos-location">
-							<strong>Feira de Santana:</strong>&nbsp Dojo Benvindo, Rua Miranda, 650b, Mangabeira.
-						</div>
-						<div class="dojos-contact">
-							<a href="tel:+5575991730009">(75) 99173-0009</a>- João Ricardo Sensei
-						</div>
-						<button class="open-map" data-location="Feira de Santana">Ver Localização</button>
-					</li>
-				</ul>
-			</div>
-		</section>
 
-        <section id="servicos">
-		<h2>Serviços</h2>
-		<div class="servicos">
-			<div class="content-section">
-				<ul>
-					<li class="service-item">
-						<img src="sensei_banner_2.jpg" class="line" data-image="sensei_banner_2.jpg" alt="Aulas de Aikido">
-						<p>Treino de Aikido com técnica, serenidade e propósito</p>
-						</br>
-					</li>
-					<li class="service-item">
-						<img src="intensivos_1.jpg" class="line" data-image="intensivos_1.jpg" alt="Treinos Intensivos">
-						<p>Treinos Intensivos</p>
-						<a href="https://docs.google.com/forms/d/e/1FAIpQLScnNuIsNfeh_LuOkFBhXRwutsvtY0hKtmCC3NzyiB_ua-Mpdg/viewform?pli=1" target="_blank" class="styled-link">Realize sua inscrição</a>
-					</li>
-					<li class="service-item">
-						<img src="defesa_mulheres.jpeg" class="line" data-image="defesa_mulheres.jpeg" alt="Defesa Pessoal para Mulheres">
-						<p>Defesa Pessoal para Mulheres – projeto “Sexo Frágil? A Opção é Sua!”</p>
-					</li>
-					<li class="service-item">
-						<img src="ate_voce.jpeg" class="line" data-image="ate_voce.jpeg" alt="Aikido Até Você">
-						<p>Aikido Até Você – Aulas em Condomínios</p>
-					</li>
-					<li class="service-item">
-						<img src="aikido_empresa.jpeg" class="line" data-image="aikido_empresa.jpeg" alt="Aikido na sua Empresa">
-						<p>Aikido na sua Empresa – Atividade Laboral em SIPAT e afins</p>
-					</li>
-					<li class="service-item">
-						<img src="aikido_seguranca.jpeg" class="line" data-image="aikido_seguranca.jpeg" alt="Defesa Pessoal e Especialização para Forças de Segurança">
-						<p>Defesa Pessoal e Especialização para Forças de Segurança Pública e Privada – Imobilizações Táticas</p>
-					</li>
-					<li class="service-item">
-						<img src="aikido_kids.png" class="line" data-image="aikido_kids.png" alt="Aikido Kids">
-						<p>Aikido Kids – Aulas de Aikido para crianças no Dojo e em escolas</p>
-					</li>
-					<li class="service-item">
-						<img src="seguranca_vip.jpeg" class="line" data-image="seguranca_vip.jpeg"  alt="Segurança VIP">
-						<p>Segurança VIP</p>
-					</li>
-					<li class="service-item">
-						<img src="intensivo_2.jpeg" class="line" data-image="intensivo_2.jpeg" alt="Palestras">
-						<p>Palestras</p>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</section>
+        <!-- SEÇÃO SERVIÇOS: IMAGENS GRANDES (300px) -->
+        <section id="servicos" class="reveal">
+            <h2>Serviços</h2>
+            <div class="grid-cards">
+                <div class="card-item clickable line" data-image="sensei_banner_2.jpg">
+                    <div class="card-img-wrapper"><img src="sensei_banner_2.jpg" loading="lazy" alt="Aulas de Aikido"></div>
+                    <div class="card-body">
+                        <p>Treino de Aikido com técnica, serenidade e propósito</p>
+                        <span class="card-icon-hint">Ampliar</span>
+                    </div>
+                </div>
+                <div class="card-item clickable line" data-image="intensivos_1.jpg">
+                    <div class="card-img-wrapper"><img src="intensivos_1.jpg" loading="lazy" alt="Treinos Intensivos"></div>
+                    <div class="card-body">
+                        <p>Treinos Intensivos</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScnNuIsNfeh_LuOkFBhXRwutsvtY0hKtmCC3NzyiB_ua-Mpdg/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="link-inline" style="display:inline-block; margin-top:10px;">Realize sua inscrição</a>
+                    </div>
+                </div>
+                <div class="card-item clickable line" data-image="defesa_mulheres.jpeg">
+                    <div class="card-img-wrapper"><img src="defesa_mulheres.jpeg" loading="lazy" alt="Defesa Pessoal Mulheres"></div>
+                    <div class="card-body">
+                        <p>Defesa Pessoal para Mulheres – projeto “Sexo Frágil? A Opção é Sua!”</p>
+                        <span class="card-icon-hint">Ampliar</span>
+                    </div>
+                </div>
+                <div class="card-item clickable line" data-image="ate_voce.jpeg">
+                    <div class="card-img-wrapper"><img src="ate_voce.jpeg" loading="lazy" alt="Aikido Condomínios"></div>
+                    <div class="card-body">
+                        <p>Aikido Até Você – Aulas em Condomínios</p>
+                        <span class="card-icon-hint">Ampliar</span>
+                    </div>
+                </div>
+                <div class="card-item clickable line" data-image="aikido_empresa.jpeg">
+                    <div class="card-img-wrapper"><img src="aikido_empresa.jpeg" loading="lazy" alt="Aikido Empresas"></div>
+                    <div class="card-body">
+                        <p>Aikido na sua Empresa – Atividade Laboral em SIPAT e afins</p>
+                        <span class="card-icon-hint">Ampliar</span>
+                    </div>
+                </div>
+                <div class="card-item clickable line" data-image="aikido_seguranca.jpeg">
+                    <div class="card-img-wrapper"><img src="aikido_seguranca.jpeg" loading="lazy" alt="Aikido Segurança"></div>
+                    <div class="card-body">
+                        <p>Defesa Pessoal e Especialização para Forças de Segurança – Imobilizações</p>
+                        <span class="card-icon-hint">Ampliar</span>
+                    </div>
+                </div>
+                <div class="card-item clickable line" data-image="aikido_kids.png">
+                    <div class="card-img-wrapper"><img src="aikido_kids.png" loading="lazy" alt="Aikido Kids"></div>
+                    <div class="card-body">
+                        <p>Aikido Kids – Aulas de Aikido para crianças no Dojo e em escolas</p>
+                        <span class="card-icon-hint">Ampliar</span>
+                    </div>
+                </div>
+                <div class="card-item clickable line" data-image="seguranca_vip.jpeg">
+                    <div class="card-img-wrapper"><img src="seguranca_vip.jpeg" loading="lazy" alt="Segurança VIP"></div>
+                    <div class="card-body">
+                        <p>Segurança VIP</p>
+                        <span class="card-icon-hint">Ampliar</span>
+                    </div>
+                </div>
+                <div class="card-item clickable line" data-image="intensivo_2.jpeg">
+                    <div class="card-img-wrapper"><img src="intensivo_2.jpeg" loading="lazy" alt="Palestras"></div>
+                    <div class="card-body">
+                        <p>Palestras</p>
+                        <span class="card-icon-hint">Ampliar</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-	<section id="produtos">
-		<h2>Produtos</h2>
-		<div class="produtos">
-			<div class="content-section">
-				<ul>
-					<li title="Clique para ver a imagem" data-image="gi.jpg" class="line">Kimonos ou Dogi</li>
-					<li title="Clique para ver a imagem" data-image="camisa.jpeg" class="line">Camisa Treinar e evoluir</li>
-					<li title="Clique para ver a imagem" data-image="camisa_aikido.jpeg" class="line">Camisa Aikido</li>
-					<li title="Clique para ver a imagem" data-image="jo_bokken.png" class="line">Kit armas de madeira: Bokken (espada de madeira), Jo (bastão de madeira), Tanto (faca de madeira)</li>
-					<li title="Clique para ver a imagem" data-image="novo_rumo.png"  class="line">Livro: Ebook Aikido - O seu caminho para um novo rumo. Escrito por Nelson Faria, praticante do Daitan Aikido. Disponível pelo <a href="https://daitanaikido.hotmart.host/pagina-de-vendas-db3aaccb-d22f-4871-bae3-81b546106596" target="_blank">link</a>.</li>
-				</ul>
-			</div>
-		</div>
-	</section>
-	<section id="redes-sociais">
-		<h2>Redes Sociais</h2>
-		<div class="redes-sociais">
-			<div class="content-section">
-				<p>Siga-nos nas redes sociais para ficar por dentro das novidades, eventos e conteúdos exclusivos:</p>
-				<div class="social-icons">
-					<a title="Página do instagram" href="https://instagram.com/daitanaikido" target="_blank">
-						<img src="instagram.png" alt="Instagram" style="width: 48px; height: 48px;">
-					</a>
-					<a title="Página do facebook" href="https://facebook.com/Uerlison" target="_blank">
-						<img src="facebook.svg" alt="Facebook" style="width: 48px; height: 48px;">
-					</a>
-					<a title="Página do youtube" href="https://www.youtube.com/@daitanaikido" target="_blank">
-						<img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" style="width: 48px; height: 48px;">
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-    </div>
+        <!-- SEÇÃO PRODUTOS -->
+        <section id="produtos" class="reveal">
+            <h2>Produtos</h2>
+            <div class="grid-cards">
+                <div class="card-item clickable line" data-image="gi.jpg">
+                    <div class="card-img-wrapper"><img src="gi.jpg" loading="lazy" alt="Kimonos"></div>
+                    <div class="card-body">
+                        <p>Kimonos ou Dogi</p>
+                        <span class="card-icon-hint">Ampliar</span>
+                    </div>
+                </div>
+                <div class="card-item clickable line" data-image="camisa.jpeg">
+                    <div class="card-img-wrapper"><img src="camisa.jpeg" loading="lazy" alt="Camisa"></div>
+                    <div class="card-body">
+                        <p>Camisa Treinar e evoluir</p>
+                        <span class="card-icon-hint">Ampliar</span>
+                    </div>
+                </div>
+                <div class="card-item clickable line" data-image="camisa_aikido.jpeg">
+                    <div class="card-img-wrapper"><img src="camisa_aikido.jpeg" loading="lazy" alt="Camisa Aikido"></div>
+                    <div class="card-body">
+                        <p>Camisa Aikido</p>
+                        <span class="card-icon-hint">Ampliar</span>
+                    </div>
+                </div>
+                <div class="card-item clickable line" data-image="jo_bokken.png">
+                    <div class="card-img-wrapper"><img src="jo_bokken.png" loading="lazy" alt="Kit Armas de Madeira"></div>
+                    <div class="card-body">
+                        <p>Kit armas de madeira: Bokken, Jo e Tanto</p>
+                        <span class="card-icon-hint">Ampliar</span>
+                    </div>
+                </div>
+                <div class="card-item clickable line" data-image="novo_rumo.png">
+                    <div class="card-img-wrapper"><img src="novo_rumo.png" loading="lazy" alt="Livro Aikido"></div>
+                    <div class="card-body">
+                        <p>Ebook Aikido - O seu caminho para um novo rumo. Por Nelson Faria.</p>
+                        <a href="https://daitanaikido.hotmart.host/pagina-de-vendas-db3aaccb-d22f-4871-bae3-81b546106596" target="_blank" rel="noopener noreferrer" class="link-inline" style="margin-top:10px; display:inline-block;">Acessar Link Oficial</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="redes-sociais" class="reveal">
+            <h2>Redes Sociais</h2>
+            <div style="text-align: center;">
+                <p>Siga-nos nas redes sociais para ficar por dentro das novidades, eventos e conteúdos exclusivos:</p>
+                <div class="social-icons">
+                    <a title="Página do instagram" href="https://instagram.com/daitanaikido" target="_blank" rel="noopener noreferrer">
+                        <img src="instagram.png" alt="Instagram">
+                    </a>
+                    <a title="Página do facebook" href="https://facebook.com/Uerlison" target="_blank" rel="noopener noreferrer">
+                        <img src="facebook.svg" alt="Facebook">
+                    </a>
+                    <a title="Página do youtube" href="https://www.youtube.com/@daitanaikido" target="_blank" rel="noopener noreferrer">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy;Daitan Aikido. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Daitan Aikido. Todos os direitos reservados. Treinar e evoluir sempre.</p>
     </footer>
     
-    <a href="https://wa.me/557186225839?text=Olá,%20acessei seu site e gostaria%20de%20saber%20mais%20sobre%20o%20Daitan%20Dojo%20Aikido." class="whatsapp-icon" target="_blank" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background-color: #25D366; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
-        <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" style="width: 40px; height: 40px;">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/557186225839?text=Olá,%20acessei%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Daitan%20Dojo%20Aikido." class="whatsapp-icon" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
     </a>
 
-	<div id="imageModal" class="modal">
-		<div class="modal-content">
-			<span class="close">&times;</span>
-			<img id="modalImage" alt="Imagem do Serviço">
-		</div>
-	</div>
-	
-	<div id="mapModal" class="modal">
-    <div class="modal-content">
-			<span class="closeMap">&times;</span>
-			<div id="map" style="width: 100%; height: 400px;"></div>
-		</div>
-	</div>
+    <!-- Modal de Imagens -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content" style="background: transparent; border: none; text-align: center; box-shadow: none;">
+            <span class="close">&times;</span>
+            <img id="modalImage" alt="Imagem Expandida">
+        </div>
+    </div>
+    
+    <!-- Modal do Mapa -->
+    <div id="mapModal" class="modal">
+        <div class="modal-content">
+            <span class="closeMap">&times;</span>
+            <div id="map" style="width: 100%; height: 60vh; border-radius: 8px; z-index: 1;"></div>
+        </div>
+    </div>
 
+    <!-- Scripts -->
     <script>
-		document.querySelector('.menu-toggle').addEventListener('click', function () {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
-		
         document.addEventListener('DOMContentLoaded', function() {
+            // Menu Mobile
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navUl = document.querySelector('#nav-menu');
+            
+            menuToggle.addEventListener('click', function () {
+                navUl.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+
+            document.querySelectorAll('#nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navUl.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
+            });
+
+            // Visibilidade WhatsApp
             const whatsappIcon = document.querySelector('.whatsapp-icon');
             const firstSection = document.querySelector('#aikido');
 
             window.addEventListener('scroll', function() {
-                const sectionTop = firstSection.getBoundingClientRect().top;
-
-                if (sectionTop <= window.innerHeight) {
-                    whatsappIcon.classList.add('show');
-                } else {
-                    whatsappIcon.classList.remove('show');
+                if(firstSection) {
+                    const sectionTop = firstSection.getBoundingClientRect().top;
+                    if (sectionTop <= window.innerHeight) {
+                        whatsappIcon.classList.add('show');
+                    } else {
+                        whatsappIcon.classList.remove('show');
+                    }
                 }
             });
+
+            // Scroll Reveal Animation
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            reveals.forEach(reveal => observer.observe(reveal));
+
+            // Inicializa Modais
+            initImageModal();
+            initModalMap();
         });
+        
+        function initImageModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const closeModal = document.querySelector('.modal .close');
+            
+            document.querySelectorAll('.line').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    if(e.target.tagName === 'A' || e.target.closest('a')) return; 
+                    
+                    const imagePath = this.getAttribute('data-image');
+                    if(imagePath){
+                        modalImage.src = imagePath;
+                        modal.style.display = 'block';
+                        document.body.style.overflow = 'hidden'; 
+                    }
+                });
+            });
+
+            closeModal.addEventListener('click', closeImgModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeImgModal();
+            });
+
+            function closeImgModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        function initModalMap() {
+            const modal = document.getElementById('mapModal');
+            const closeModal = document.querySelector('.modal .closeMap');
+            let map; 
+
+            document.querySelectorAll('.open-map').forEach(button => {
+                button.addEventListener('click', function() {
+                    const location = this.getAttribute('data-location');
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                    setTimeout(() => initMap(location), 100); 
+                });
+            });
+
+            closeModal.addEventListener('click', closeMapModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeMapModal();
+            });
+
+            function closeMapModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            function initMap(location) {
+                const locations = {
+                    'Lauro de Freitas': {lat: -12.88763, lng: -38.31436},
+                    'Salvador': {lat: -12.92294, lng: -38.35783},
+                    'Feira de Santana': {lat: -12.22259, lng: -38.95055}
+                };
+
+                if (map) { map.remove(); }
+
+                map = L.map('map').setView(locations[location], 16);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(map);
+
+                L.marker(locations[location]).addTo(map)
+                    .bindPopup('<b>' + location + '</b><br>Daitan Dojo')
+                    .openPopup();
+            }
+        }
     </script>
-	
-	<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		initImageModal();
-		initModalMap();
-	});
-	
-	function initImageModal() {
-		const modal = document.getElementById('imageModal');
-		const modalImage = document.getElementById('modalImage');
-		const closeModal = document.querySelector('.modal .close');
-		
-		document.querySelectorAll('.line').forEach(item => {
-			item.addEventListener('click', function() {
-				const imagePath = this.getAttribute('data-image');
-				if(imagePath){
-					modalImage.src = imagePath;
-				}
-				
-				modal.style.display = 'block';
-			});
-		});
-
-		closeModal.addEventListener('click', function() {
-			modal.style.display = 'none';
-		});
-
-		window.addEventListener('click', function(event) {
-			if (event.target == modal) {
-				modal.style.display = 'none';
-			}
-		});
-	}
-	
-	function initModalMap() {
-		const modal = document.getElementById('mapModal');
-		const closeModal = document.querySelector('.modal .closeMap');
-		let map; 
-
-		document.querySelectorAll('.open-map').forEach(button => {
-			button.addEventListener('click', function() {
-				const location = this.getAttribute('data-location');
-				showModal(location);
-			});
-		});
-
-		closeModal.addEventListener('click', function() {
-			modal.style.display = 'none';
-		});
-
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = 'none';
-			}
-		}
-
-		function showModal(location) {
-			modal.style.display = 'block';
-			initMap(location);
-		}
-
-		function initMap(location) {
-			var locations = {
-				'Lauro de Freitas': {lat: -12.88763, lng: -38.31436},
-				'Salvador': {lat: -12.92294, lng: -38.35783},
-				'Feira de Santana': {lat: -12.22259, lng: -38.95055}
-			};
-
-			if (map) {
-				map.remove();
-			}
-
-			map = L.map('map').setView(locations[location], 16);
-
-			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-			}).addTo(map);
-
-			L.marker(locations[location]).addTo(map)
-				.bindPopup('<b>' + location + '</b><br>Daitan Dojo')
-				.openPopup();
-		}
-	}
-
-
-	</script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 </body>
 </html>
-
